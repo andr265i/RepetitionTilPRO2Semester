@@ -48,7 +48,7 @@ class Emne27KoeTest {
     @Test
     void testArrayKø_Operationer_27_1() {
         // TODO: Afkommenter og kør når ArrayKø og KøFuldException er implementeret.
-        /*
+
         ArrayKø<Integer> kø = new ArrayKø<>(3);
         assertTrue(kø.erTom());
         assertEquals(0, kø.size());
@@ -80,7 +80,7 @@ class Emne27KoeTest {
         assertEquals(Integer.valueOf(3), kø.dequeue());
         assertEquals(Integer.valueOf(4), kø.dequeue());
         assertTrue(kø.erTom());
-        */
+
         assertTrue(true, "Test for 27.1 afventer implementering af ArrayKø og KøFuldException.");
     }
 

@@ -75,32 +75,32 @@ class Emne04KlassehierarkierTest {
     // --- Opgave 4.1: Avanceret Køretøj Hierarki ---
     @Test
     void testKøretøj_PersonBil_LastBil_GrundFunktioner() {
-//        Køretøj generisk = new Køretøj("GEN001", 1000, 180);
-//        assertEquals(0, generisk.getNuværendeHastighedKmt());
-//        generisk.accelerer(50);
-//        assertEquals(50, generisk.getNuværendeHastighedKmt());
-//        generisk.accelerer(200); // Skal ramme maksHastighed
-//        assertEquals(180, generisk.getNuværendeHastighedKmt());
-//        generisk.brems(100);
-//        assertEquals(80, generisk.getNuværendeHastighedKmt());
-//        generisk.brems(100); // Skal ramme 0
-//        assertEquals(0, generisk.getNuværendeHastighedKmt());
-//
-//        PersonBil pBil = new PersonBil("PB123", 1500, 200, 5, 400);
-//        pBil.accelerer(50); // 50 * 1.2 = 60 (hvis faktoren er 1.2)
-//        // Nøjagtig forventet værdi afhænger af din implementerede faktor i PersonBil
-//        assertTrue(pBil.getNuværendeHastighedKmt() > 50 && pBil.getNuværendeHastighedKmt() <= 60, "Personbil acceleration forkert");
-//        assertTrue(pBil.pakBagagerum(300));
-//        assertEquals(100, pBil.getLedigBagagePladsLiter());
-//        assertFalse(pBil.pakBagagerum(150)); // For meget
-//
-//        LastBil lBil = new LastBil("LB789", 5000, 120, 10000);
-//        lBil.accelerer(50); // 50 * 0.8 = 40 (uden anhænger)
-//        assertTrue(lBil.getNuværendeHastighedKmt() >= 35 && lBil.getNuværendeHastighedKmt() <= 45, "Lastbil acceleration (uden anhænger) forkert");
-//        lBil.tilkoblAnhænger();
-//        lBil.brems(100); // Sæt til 0
-//        lBil.accelerer(50); // 50 * 0.5 = 25 (med anhænger)
-//        assertTrue(lBil.getNuværendeHastighedKmt() >= 20 && lBil.getNuværendeHastighedKmt() <= 30, "Lastbil acceleration (med anhænger) forkert");
+        Køretøj generisk = new Køretøj("GEN001", 1000, 180);
+        assertEquals(0, generisk.getNuværendeHastighedKmt());
+        generisk.accelerer(50);
+        assertEquals(50, generisk.getNuværendeHastighedKmt());
+        generisk.accelerer(200); // Skal ramme maksHastighed
+        assertEquals(180, generisk.getNuværendeHastighedKmt());
+        generisk.brems(100);
+        assertEquals(80, generisk.getNuværendeHastighedKmt());
+        generisk.brems(100); // Skal ramme 0
+        assertEquals(0, generisk.getNuværendeHastighedKmt());
+
+        PersonBil pBil = new PersonBil("PB123", 1500, 200, 5, 400);
+        pBil.accelerer(50); // 50 * 1.2 = 60 (hvis faktoren er 1.2)
+        // Nøjagtig forventet værdi afhænger af din implementerede faktor i PersonBil
+        assertTrue(pBil.getNuværendeHastighedKmt() > 50 && pBil.getNuværendeHastighedKmt() <= 60, "Personbil acceleration forkert");
+        assertTrue(pBil.pakBagagerum(300));
+        assertEquals(100, pBil.getLedigBagagePladsLiter());
+        assertFalse(pBil.pakBagagerum(150)); // For meget
+
+        LastBil lBil = new LastBil("LB789", 5000, 120, 10000);
+        lBil.accelerer(50); // 50 * 0.8 = 40 (uden anhænger)
+        assertTrue(lBil.getNuværendeHastighedKmt() >= 35 && lBil.getNuværendeHastighedKmt() <= 45, "Lastbil acceleration (uden anhænger) forkert");
+        lBil.tilkoblAnhænger();
+        lBil.brems(100); // Sæt til 0
+        lBil.accelerer(50); // 50 * 0.5 = 25 (med anhænger)
+        assertTrue(lBil.getNuværendeHastighedKmt() >= 20 && lBil.getNuværendeHastighedKmt() <= 30, "Lastbil acceleration (med anhænger) forkert");
     }
 
     // --- Opgave 4.2: Medie Hierarki ---

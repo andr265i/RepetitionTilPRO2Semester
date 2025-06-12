@@ -3,7 +3,6 @@ package emne03_klasserOgObjekter; // Sørg for at denne matcher din pakke
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
-
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
@@ -33,121 +32,121 @@ import emne03_klasserobjekter.HttpHeader;
 class Emne03KlasserOgObjekterTest {
 
     // --- Tests for Opgave 3.1: BiblioteksBog ---
-//    private BiblioteksBog bog_3_1;
+    private BiblioteksBog bog_3_1;
     private final LocalDate idag_3_1 = LocalDate.now();
 
     @BeforeEach
     void setUpBiblioteksBog_3_1() {
-//        bog_3_1 = new BiblioteksBog("Hobitten", "J.R.R. Tolkien", 1937, "978-0547928227");
+        bog_3_1 = new BiblioteksBog("Hobitten", "J.R.R. Tolkien", 1937, "978-0547928227");
     }
 
     @Test
     void testBiblioteksBog_KonstruktorOgGettere_3_1() {
-//        assertEquals("Hobitten", bog_3_1.getTitel());
-//        assertEquals("J.R.R. Tolkien", bog_3_1.getForfatter());
-//        assertEquals(1937, bog_3_1.getUdgivelsesår());
-//        assertEquals("978-0547928227", bog_3_1.getIsbn());
-//        assertFalse(bog_3_1.erUdlånt());
-//        assertNull(bog_3_1.getLånerNavn());
-//        assertNull(bog_3_1.getUdlånsdato());
+        assertEquals("Hobitten", bog_3_1.getTitel());
+        assertEquals("J.R.R. Tolkien", bog_3_1.getForfatter());
+        assertEquals(1937, bog_3_1.getUdgivelsesår());
+        assertEquals("978-0547928227", bog_3_1.getIsbn());
+        assertFalse(bog_3_1.erUdlånt());
+        assertNull(bog_3_1.getLånerNavn());
+        assertNull(bog_3_1.getUdlånsdato());
     }
 
     @Test
     void testBiblioteksBog_UdlånOgStatus_3_1() {
-//        assertTrue(bog_3_1.udlånBog("Frodo Sækker", idag_3_1));
-//        assertTrue(bog_3_1.erUdlånt());
-//        assertEquals("Frodo Sækker", bog_3_1.getLånerNavn());
-//        assertEquals(idag_3_1, bog_3_1.getUdlånsdato());
-//        String expectedStatus = "Hobitten af J.R.R. Tolkien - Udlånt til Frodo Sækker den " + idag_3_1.toString();
-//        assertEquals(expectedStatus, bog_3_1.getBogStatus());
+        assertTrue(bog_3_1.udlånBog("Frodo Sækker", idag_3_1));
+        assertTrue(bog_3_1.erUdlånt());
+        assertEquals("Frodo Sækker", bog_3_1.getLånerNavn());
+        assertEquals(idag_3_1, bog_3_1.getUdlånsdato());
+        String expectedStatus = "Hobitten af J.R.R. Tolkien - Udlånt til Frodo Sækker den " + idag_3_1.toString();
+        assertEquals(expectedStatus, bog_3_1.getBogStatus());
     }
 
     @Test
     void testBiblioteksBog_UdlånAlleredeUdlånt_3_1() {
-//        bog_3_1.udlånBog("Frodo Sækker", idag_3_1);
-//        assertFalse(bog_3_1.udlånBog("Sam Gammegod", idag_3_1.plusDays(1)));
-//        assertEquals("Frodo Sækker", bog_3_1.getLånerNavn()); // Stadig Frodo
+        bog_3_1.udlånBog("Frodo Sækker", idag_3_1);
+        assertFalse(bog_3_1.udlånBog("Sam Gammegod", idag_3_1.plusDays(1)));
+        assertEquals("Frodo Sækker", bog_3_1.getLånerNavn()); // Stadig Frodo
     }
 
     @Test
     void testBiblioteksBog_AfleverBogIngenBøde_3_1() {
-//        bog_3_1.udlånBog("Gandalf Grå", idag_3_1);
-//        assertEquals(0.0, bog_3_1.afleverBog(idag_3_1.plusDays(29)), 0.01); // Låneperiode 30 dage
-//        assertFalse(bog_3_1.erUdlånt());
-//        String expectedStatus = "Hobitten af J.R.R. Tolkien - Tilgængelig.";
-//        assertEquals(expectedStatus, bog_3_1.getBogStatus());
+        bog_3_1.udlånBog("Gandalf Grå", idag_3_1);
+        assertEquals(0.0, bog_3_1.afleverBog(idag_3_1.plusDays(29)), 0.01); // Låneperiode 30 dage
+        assertFalse(bog_3_1.erUdlånt());
+        String expectedStatus = "Hobitten af J.R.R. Tolkien - Tilgængelig.";
+        assertEquals(expectedStatus, bog_3_1.getBogStatus());
     }
 
     @Test
     void testBiblioteksBog_AfleverBogMedBøde_3_1() {
-//        bog_3_1.udlånBog("Bilbo Sækker", idag_3_1);
-//        assertEquals(50.0, bog_3_1.afleverBog(idag_3_1.plusDays(30 + 5)), 0.01); // 5 dage for sent
-//        assertFalse(bog_3_1.erUdlånt());
+        bog_3_1.udlånBog("Bilbo Sækker", idag_3_1);
+        assertEquals(50.0, bog_3_1.afleverBog(idag_3_1.plusDays(30 + 5)), 0.01); // 5 dage for sent
+        assertFalse(bog_3_1.erUdlånt());
     }
 
     @Test
     void testBiblioteksBog_AfleverBogIkkeUdlånt_3_1() {
-//        assertEquals(-1.0, bog_3_1.afleverBog(idag_3_1), 0.01);
+        assertEquals(-1.0, bog_3_1.afleverBog(idag_3_1), 0.01);
     }
 
     @Test
     void testBiblioteksBog_GetForfaldsdato_3_1() {
-//        assertNull(bog_3_1.getForfaldsdato(30));
-//        bog_3_1.udlånBog("Thorin Egeskjold", idag_3_1);
-//        assertEquals(idag_3_1.plusDays(14), bog_3_1.getForfaldsdato(14));
+        assertNull(bog_3_1.getForfaldsdato(30));
+        bog_3_1.udlånBog("Thorin Egeskjold", idag_3_1);
+        assertEquals(idag_3_1.plusDays(14), bog_3_1.getForfaldsdato(14));
     }
 
     // --- Tests for Opgave 3.2: StuderendeTilKursus og Kursus ---
-//    private StuderendeTilKursus stud1_3_2, stud2_3_2, stud3_3_2, stud1Dup_3_2;
-//    private Kursus kursus_3_2;
+    private StuderendeTilKursus stud1_3_2, stud2_3_2, stud3_3_2, stud1Dup_3_2;
+    private Kursus kursus_3_2;
 
     @BeforeEach
     void setUpStuderendeOgKursus_3_2() {
-//        stud1_3_2 = new StuderendeTilKursus("Peter Pan", 201);
-//        stud2_3_2 = new StuderendeTilKursus("Wendy Darling", 202);
-//        stud3_3_2 = new StuderendeTilKursus("Kaptajn Klo", 203);
-//        stud1Dup_3_2 = new StuderendeTilKursus("Peter Plys", 201); // Samme ID
-//        kursus_3_2 = new Kursus("Flyveteknik for Begyndere", 2);
+        stud1_3_2 = new StuderendeTilKursus("Peter Pan", 201);
+        stud2_3_2 = new StuderendeTilKursus("Wendy Darling", 202);
+        stud3_3_2 = new StuderendeTilKursus("Kaptajn Klo", 203);
+        stud1Dup_3_2 = new StuderendeTilKursus("Peter Plys", 201); // Samme ID
+        kursus_3_2 = new Kursus("Flyveteknik for Begyndere", 2);
     }
 
     @Test
     void testStuderendeTilKursus_EqualsHashCodeToString_3_2() {
-//        assertEquals(stud1_3_2, stud1Dup_3_2);
-//        assertNotEquals(stud1_3_2, stud2_3_2);
-//        assertEquals(stud1_3_2.hashCode(), stud1Dup_3_2.hashCode());
-//        assertTrue(stud1_3_2.toString().contains("Peter Pan"));
+        assertEquals(stud1_3_2, stud1Dup_3_2);
+        assertNotEquals(stud1_3_2, stud2_3_2);
+        assertEquals(stud1_3_2.hashCode(), stud1Dup_3_2.hashCode());
+        assertTrue(stud1_3_2.toString().contains("Peter Pan"));
     }
 
     @Test
     void testKursus_TilmeldFrameld_3_2() {
-//        assertTrue(kursus_3_2.tilmeldStuderende(stud1_3_2));
-//        assertTrue(kursus_3_2.tilmeldStuderende(stud2_3_2));
-//        assertFalse(kursus_3_2.tilmeldStuderende(stud3_3_2)); // Kursus fuldt
-//        assertFalse(kursus_3_2.tilmeldStuderende(stud1Dup_3_2)); // Allerede tilmeldt via ID
-//        assertFalse(kursus_3_2.tilmeldStuderende(null));
-//
-//        assertEquals(stud1_3_2, kursus_3_2.findStuderende(201));
-//        assertTrue(kursus_3_2.frameldStuderende(201));
-//        assertNull(kursus_3_2.findStuderende(201));
-//        assertFalse(kursus_3_2.frameldStuderende(201)); // Allerede frameldt
+        assertTrue(kursus_3_2.tilmeldStuderende(stud1_3_2));
+        assertTrue(kursus_3_2.tilmeldStuderende(stud2_3_2));
+        assertFalse(kursus_3_2.tilmeldStuderende(stud3_3_2)); // Kursus fuldt
+        assertFalse(kursus_3_2.tilmeldStuderende(stud1Dup_3_2)); // Allerede tilmeldt via ID
+        assertFalse(kursus_3_2.tilmeldStuderende(null));
+
+        assertEquals(stud1_3_2, kursus_3_2.findStuderende(201));
+        assertTrue(kursus_3_2.frameldStuderende(201));
+        assertNull(kursus_3_2.findStuderende(201));
+        assertFalse(kursus_3_2.frameldStuderende(201)); // Allerede frameldt
     }
 
     @Test
     void testKursus_GetStuderendeMedLængsteNavn_3_2() {
-//        assertNull(kursus_3_2.getStuderendeMedLængsteNavn());
-//        kursus_3_2.tilmeldStuderende(stud2_3_2); // "Wendy Darling" (13)
-//        kursus_3_2.tilmeldStuderende(stud1_3_2); // "Peter Pan" (9)
-//        assertEquals(stud2_3_2, kursus_3_2.getStuderendeMedLængsteNavn());
+        assertNull(kursus_3_2.getStuderendeMedLængsteNavn());
+        kursus_3_2.tilmeldStuderende(stud2_3_2); // "Wendy Darling" (13)
+        kursus_3_2.tilmeldStuderende(stud1_3_2); // "Peter Pan" (9)
+        assertEquals(stud2_3_2, kursus_3_2.getStuderendeMedLængsteNavn());
     }
 
     @Test
     void testKursus_GetKursusCertifikater_3_2() {
-//        assertTrue(kursus_3_2.getKursusCertifikater().isEmpty());
-//        kursus_3_2.tilmeldStuderende(stud1_3_2);
-//        kursus_3_2.tilmeldStuderende(stud2_3_2);
-//        ArrayList<String> certs = kursus_3_2.getKursusCertifikater();
-//        assertEquals(2, certs.size());
-//        assertTrue(certs.get(0).contains("Peter Pan") && certs.get(0).contains("Flyveteknik for Begyndere"));
+        assertTrue(kursus_3_2.getKursusCertifikater().isEmpty());
+        kursus_3_2.tilmeldStuderende(stud1_3_2);
+        kursus_3_2.tilmeldStuderende(stud2_3_2);
+        ArrayList<String> certs = kursus_3_2.getKursusCertifikater();
+        assertEquals(2, certs.size());
+        assertTrue(certs.get(0).contains("Peter Pan") && certs.get(0).contains("Flyveteknik for Begyndere"));
     }
 
     // --- Tests for Opgave 3.3: Terning ---

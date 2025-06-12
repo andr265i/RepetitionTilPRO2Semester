@@ -37,7 +37,7 @@ class Emne26StakTest {
     @Test
     void testArrayStak_FastStørrelse_26_1() {
         // TODO: Afkommenter og kør når ArrayStak og StakFuldException er implementeret.
-        /*
+
         ArrayStak<Integer> stak = new ArrayStak<>(3);
         assertTrue(stak.erTom());
         assertEquals(0, stak.size());
@@ -61,7 +61,7 @@ class Emne26StakTest {
         assertTrue(stak.erTom());
         assertThrows(EmptyStackException.class, () -> stak.pop());
         assertThrows(EmptyStackException.class, () -> stak.peek());
-        */
+
     }
 
     // --- Opgave 26.2: Array-baseret Stak (Dynamisk Størrelse) ---

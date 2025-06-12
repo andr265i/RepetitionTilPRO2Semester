@@ -1,5 +1,7 @@
 package emne02_multiarrays; // Husk at sætte den korrekte package øverst i din fil
 
+import javax.xml.transform.Result;
+
 /**
  * Generel Beskrivelse for Opgavesættet Emne 2: Arrays i Flere Dimensioner
  * =======================================================================
@@ -33,7 +35,23 @@ public class Emne02OpgaverMultiArrays {
         // Brug indlejrede løkker til at gennemgå alle felter.
         // Tildel 'H' eller 'S' baseret på om summen af række- og kolonneindeks (i+j) er lige eller ulige.
         // (Hvis (i+j) % 2 == 0, så 'H', ellers 'S' - eller omvendt, vælg en konsekvent start).
-        return null; // Skal erstattes
+
+        char[][] charArray2D = null;
+
+        if(size > 0) {
+            charArray2D = new char[size][size];
+            for(int i = 0; i < charArray2D.length; i++){
+                for(int j = 0; j < charArray2D[1].length; j++ ){
+                    if((i+j) % 2 == 0) {
+                        charArray2D[i][j] = 'H';
+                    }
+                    else {
+                        charArray2D[i][j] = 'S';
+                    }
+                }
+            }
+    }
+        return charArray2D;
     }
 
     /**
@@ -55,19 +73,37 @@ public class Emne02OpgaverMultiArrays {
      * Kræver tjek for, om matricen er kvadratisk.
      */
     public static int opgave2_2_sumMainDiagonal(int[][] matrix) {
-        // TODO: Implementer sumMainDiagonal.
         // Håndter null matrix, ikke-kvadratisk matrix, eller tom matrix
         // (f.eks. returner 0 eller kast IllegalArgumentException, hvis den ikke er kvadratisk).
         // Iterer og summer elementerne hvor rækkeindeks == kolonneindeks.
-        return 0; // Skal erstattes
+
+        int sum = 0;
+        if(matrix == null || matrix.length == 0 || matrix.length != matrix[1].length){
+            return 0;
+        }
+        else {
+            for(int i = 0; i < matrix.length ; i++) {
+                sum += matrix[i][i];
+            }
+        }
+        return sum; // Skal erstattes
     }
 
     public static int opgave2_2_sumAntiDiagonal(int[][] matrix) {
-        // TODO: Implementer sumAntiDiagonal.
         // Håndter null matrix, ikke-kvadratisk matrix, eller tom matrix.
         // For en N x N matrix, er elementerne på antidiagonalen matrix[i][N-1-i].
         // Iterer og summer disse elementer.
-        return 0; // Skal erstattes
+
+        int sum = 0;
+        if(matrix == null || matrix.length == 0 || matrix.length != matrix[1].length){
+            return 0;
+        }
+        else {
+            for(int i = matrix.length-1; i >= 0; i--) {
+                sum += matrix[i][i];
+            }
+        }
+        return sum; // Skal erstattes
     }
 
     /**

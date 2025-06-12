@@ -55,7 +55,6 @@ public class Emne04Klassehierarkier {
      * - `boolean lastFrag(int kg)`: Tilføjer `kg` til `nuværendeLastKg` hvis der er kapacitet. Returnerer succes.
      * - `void tilkoblAnhænger()`, `void frakoblAnhænger()`.
      *
-     * TODO: Opret de tre .java filer og implementer klasserne med den beskrevne logik.
      */
 
     /**

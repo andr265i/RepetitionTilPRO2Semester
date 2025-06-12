@@ -36,7 +36,7 @@ public class Emne08IndkapslingTeoriOpgaver {
      */
     public static int opgave8_1_svarAccessModifierSaldo() {
         // TODO: Sæt variablen til det korrekte svar-nummer (1-4).
-        int ditSvar = 0;
+        int ditSvar = 2;
         return ditSvar;
     }
 
@@ -60,7 +60,7 @@ public class Emne08IndkapslingTeoriOpgaver {
      */
     public static int opgave8_2_svarGetterForMutabelListe() {
         // TODO: Sæt variablen til det korrekte svar-nummer (1-4).
-        int ditSvar = 0;
+        int ditSvar = 2;
         return ditSvar;
     }
 
@@ -83,7 +83,7 @@ public class Emne08IndkapslingTeoriOpgaver {
      */
     public static int opgave8_3_svarSetterValidering() {
         // TODO: Sæt variablen til det korrekte svar-nummer (1-4).
-        int ditSvar = 0;
+        int ditSvar = 3;
         return ditSvar;
     }
 
@@ -109,7 +109,7 @@ public class Emne08IndkapslingTeoriOpgaver {
      */
     public static int opgave8_4_svarAnsvarsplacering() {
         // TODO: Sæt variablen til det korrekte svar-nummer (1-4).
-        int ditSvar = 0;
+        int ditSvar = 3;
         return ditSvar;
     }
 
@@ -132,7 +132,7 @@ public class Emne08IndkapslingTeoriOpgaver {
      */
     public static int opgave8_5_svarUtilsigtetModifikation() {
         // TODO: Sæt variablen til det korrekte svar-nummer (1-4).
-        int ditSvar = 0;
+        int ditSvar = 2;
         return ditSvar;
     }
 
@@ -156,7 +156,7 @@ public class Emne08IndkapslingTeoriOpgaver {
      */
     public static int opgave8_6_svarImmutabilitetFinal() {
         // TODO: Sæt variablen til det korrekte svar-nummer (1-4).
-        int ditSvar = 0;
+        int ditSvar = 2;
         return ditSvar;
     }
 
@@ -182,7 +182,7 @@ public class Emne08IndkapslingTeoriOpgaver {
     public static int opgave8_7_svarProtectedVsPrivate() {
         // TODO: Sæt variablen til det korrekte svar-nummer (1-4).
         // (Antag at subklasser kan være i andre pakker, medmindre andet er specificeret).
-        int ditSvar = 0;
+        int ditSvar = 3;
         return ditSvar;
     }
 
@@ -201,7 +201,7 @@ public class Emne08IndkapslingTeoriOpgaver {
      */
     public static int opgave8_8_svarInformationHiding() {
         // TODO: Sæt variablen til det korrekte svar-nummer (1-4).
-        int ditSvar = 0;
+        int ditSvar = 4;
         return ditSvar;
     }
 
@@ -222,7 +222,7 @@ public class Emne08IndkapslingTeoriOpgaver {
      */
     public static int opgave8_9_svarPublicAttributKonsekvens() {
         // TODO: Sæt variablen til det korrekte svar-nummer (1-4).
-        int ditSvar = 0;
+        int ditSvar = 2;
         return ditSvar;
     }
 
@@ -245,7 +245,7 @@ public class Emne08IndkapslingTeoriOpgaver {
      */
     public static int opgave8_10_svarFordelVedIndkapsling() {
         // TODO: Sæt variablen til det korrekte svar-nummer (1-4).
-        int ditSvar = 0;
+        int ditSvar = 3;
         return ditSvar;
     }
 

@@ -38,7 +38,6 @@ public class Emne03KlasserOgObjekter {
      * - Returnerer forfaldsdato hvis udlånt, ellers `null`.
      * 7. `toString()`: Relevant strengrepræsentation.
      *
-     * TODO: Opret filen BiblioteksBog.java og implementer klassen.
      */
 
     /**

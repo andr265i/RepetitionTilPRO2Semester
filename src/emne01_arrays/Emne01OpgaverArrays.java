@@ -31,9 +31,20 @@ public class Emne01OpgaverArrays {
      * <p>
      */
     public static void opgave1_1_rotateLeft(int[] arr, int positions) {
-        // TODO: Implementer rotationslogikken for arr.
-        // Håndter selv edge cases som null array, tomt array.
-        // Modificer 'arr' direkte. Overvej brug af et hjælpearray hvis nødvendigt.
+        int tidligere;
+        if (arr != null && arr.length > 1) {
+            positions = positions % arr.length;
+            if (positions < 0) {
+                positions = positions + arr.length;
+            }
+            for (int i = 0; i < positions; i++) {
+                int temp = arr[0];
+                for (int j = 0; j < arr.length - 1; j++) {
+                    arr[j] = arr[j + 1];
+                }
+                arr[arr.length - 1] = temp;
+            }
+        }
     }
 
     /**
@@ -49,14 +60,43 @@ public class Emne01OpgaverArrays {
      * arr1 = {1, 3, 5}, arr2 = {2, 4, 6} => returnerer {1, 2, 3, 4, 5, 6}.
      */
     public static int[] opgave1_2_mergeSortedArrays(int[] arr1, int[] arr2) {
-        // TODO: Implementer flettelogikken for arr1 og arr2.
-        // Håndter edge cases: Hvad hvis et eller begge input-arrays er null eller tomme?
-        // Opret et nyt array 'mergedArray' med passende størrelse.
-        // Brug indekser til at iterere gennem arr1, arr2 og mergedArray,
-        // og indsæt elementer i sorteret rækkefølge.
-        // Husk at kopiere eventuelle resterende elementer fra det ene array,
-        // når det andet er løbet tørt.
-        return null; // Skal erstattes med det flettede array
+
+        if (arr1 == null) {
+            arr1 = new  int[0];
+        }
+        if (arr2 == null) {
+            arr2 = new int[0];
+        }
+            int[] mergedArray = new int[arr1.length+ arr2.length];
+            int placering = 0;
+            int i1 = 0;
+            int i2 = 0;
+            while (i1 < arr1.length && i2 < arr2.length) {
+                if (arr1[i1] < arr2[i2]) {
+                    mergedArray[placering] = arr1[i1];
+                    placering++;
+                    i1++;
+                }
+                else {
+                    mergedArray[placering] = arr2[i2];
+                    placering++;
+                    i2++;
+                }
+            }
+            while(i1 < arr1.length) {
+                mergedArray[placering] = arr1[i1];
+                placering++;
+                i1++;
+
+            }
+            while(i2 < arr2.length) {
+                mergedArray[placering] = arr2[i2];
+                placering++;
+                i2++;
+
+
+        }
+        return mergedArray; // Skal erstattes med det flettede array
     }
 
     /**
@@ -144,11 +184,16 @@ public class Emne01OpgaverArrays {
          * Beskrivelse: Tilføjer en deltager til kurset, hvis der er plads.
          */
         public boolean opgave1_3_addParticipant(Participant p) {
-            // TODO: Implementer addParticipant.
-            // Tjek for null deltager.
-            // Tjek om der er plads i arrayet (baseret på maxParticipants).
-            // Hvis ja, tilføj og returner true. Ellers returner false.
-            return false;
+            if(p == null) {
+                return false;
+            }
+            if(maxParticipants == currentNumberOfParticipants) {
+                return false;
+            }
+
+            participantsArray[currentNumberOfParticipants] = p;
+            currentNumberOfParticipants++;
+            return true;
         }
 
         /**
@@ -156,10 +201,16 @@ public class Emne01OpgaverArrays {
          * Beskrivelse: Finder og returnerer en deltager baseret på ID.
          */
         public Participant opgave1_3_findParticipantById(int participantId) {
-            // TODO: Implementer findParticipantById.
-            // Iterer gennem de 'currentNumberOfParticipants' og returner deltageren hvis ID matcher.
-            // Returner null hvis ikke fundet.
-            return null;
+           Participant participant = null;
+
+            for(Participant p : participantsArray) {
+                if(p != null) {
+                    if (p.participantId == participantId) {
+                        participant = p;
+                    }
+                }
+            }
+            return participant;
         }
 
         /**
@@ -173,7 +224,9 @@ public class Emne01OpgaverArrays {
             if (currentNumberOfParticipants == 0) {
                 System.out.println("  (Ingen tilmeldte deltagere)");
             } else {
-                // Din udskriftslogik her
+              for(Participant p : participantsArray) {
+                  System.out.println("Name: " + p.name + " Id: " + p.participantId);
+              }
             }
         }
 
@@ -189,6 +242,18 @@ public class Emne01OpgaverArrays {
             //    b. Sæt den sidste "aktive" plads til null.
             //    c. Dekrementer currentNumberOfParticipants.
             //    d. Returner true.
+
+
+            for(int i = 0; i < currentNumberOfParticipants ; i++) {
+                if(participantsArray[i].participantId == participantId){
+                    for(int j = i; j < currentNumberOfParticipants -1 ; j++) {
+                        participantsArray[j] = participantsArray[j+1];
+                    }
+                    participantsArray[currentNumberOfParticipants-1] = null;
+                    currentNumberOfParticipants--;
+                    return true;
+                }
+            }
             return false;
         }
     }
@@ -216,7 +281,20 @@ public class Emne01OpgaverArrays {
         // 2. Kopier alle elementer fra originalArray over i starten af newArray.
         // 3. Placer elementToAdd på den sidste plads i newArray.
         // 4. Returner newArray.
-        return null; // Skal erstattes
+
+        int[] newArray;
+        if(originalArray == null ) {
+            newArray = new int[1];
+            newArray[0] = elementToAdd;
+        }
+        else {
+            newArray = new int[originalArray.length +1];
+            for(int i = 0; i < originalArray.length; i++) {
+                newArray[i] = originalArray[i];
+            }
+            newArray[originalArray.length] = elementToAdd;
+        }
+        return newArray;
     }
 
     /**
@@ -235,7 +313,7 @@ public class Emne01OpgaverArrays {
      */
     public static int opgave1_5_delA_svarProblem() {
         // TODO: Erstat 0 med dit svar (1, 2, eller 3)
-        int ditSvar = 0;
+        int ditSvar = 2;
         return ditSvar;
     }
 
@@ -255,7 +333,20 @@ public class Emne01OpgaverArrays {
         // 2. Kopier elementer fra originalArray.
         // 3. Tilføj elementToAdd på sidste plads.
         // 4. Returner det nye array.
-        return null; // Skal erstattes
+        String[] newArray;
+
+        if(originalArray == null ) {
+            newArray = new String[1];
+            newArray[0] = elementToAdd;
+        }
+        else {
+            newArray = new String[originalArray.length+1];
+            for (int i = 0; i < originalArray.length; i++) {
+                newArray[i] = originalArray[i];
+            }
+            newArray[originalArray.length] = elementToAdd;
+        }
+        return newArray;
     }
 
     /**
@@ -274,6 +365,11 @@ public class Emne01OpgaverArrays {
         //   2. Tilføj navnet "David".
         //   3. Fjern det andet navn fra listen (elementet der oprindeligt var "Bob" på indeks 1).
         //   4. Returner den modificerede 'navneListe'.
+        navneListe.add("Alice");
+        navneListe.add("Bob");
+        navneListe.add("Charlie");
+        navneListe.add("David");
+        navneListe.remove(1);
         return navneListe; // Skal modificeres og returneres korrekt
     }
 
@@ -294,11 +390,11 @@ public class Emne01OpgaverArrays {
      */
     public static String opgave1_5_delC_svarDiskussion() {
         // TODO: For hver situation, sæt den tilsvarende 'svarX' variabel til 'A' for Array eller 'L' for ArrayList.
-        char svar1 = ' '; // Situation 1
-        char svar2 = ' '; // Situation 2
-        char svar3 = ' '; // Situation 3
-        char svar4 = ' '; // Situation 4
-        char svar5 = ' '; // Situation 5
+        char svar1 = 'A'; // Situation 1
+        char svar2 = 'L'; // Situation 2
+        char svar3 = 'A'; // Situation 3
+        char svar4 = 'L'; // Situation 4
+        char svar5 = 'A'; // Situation 5
 
         // Tjek om alle svar er udfyldt, ellers returner en påmindelse
         if (svar1 == ' ' || svar2 == ' ' || svar3 == ' ' || svar4 == ' ' || svar5 == ' ') {
@@ -315,7 +411,7 @@ public class Emne01OpgaverArrays {
      * Skriv en statisk metode `opgave1_6_reverseArrayInPlace(int[] arr)`, der omvender
      * rækkefølgen af elementerne i det givne array `arr` direkte.
      * Metoden skal *ikke* returnere et nyt array, men modificere `arr`.
-     *
+     * <p>
      * Eksempel:
      * Hvis arr er {1, 2, 3, 4, 5}, skal arr efter kaldet være {5, 4, 3, 2, 1}.
      */
@@ -334,7 +430,7 @@ public class Emne01OpgaverArrays {
      * Hvis værdien ikke findes, eller hvis input-arrayet er null/tomt,
      * skal der returneres et tomt array (f.eks. `new int[0]`).
      * Rækkefølgen af indekser i resultat-arrayet skal være stigende.
-     *
+     * <p>
      * Eksempel:
      * arr = {1, 5, 2, 5, 3, 5}, valueToFind = 5 => returnerer {1, 3, 5}
      */
@@ -354,7 +450,7 @@ public class Emne01OpgaverArrays {
      * Hvis `ascending` er `true`, tjekkes for stigende orden.
      * Hvis `ascending` er `false`, tjekkes for faldende orden.
      * Et array med 0 eller 1 element betragtes altid som sorteret.
-     *
+     * <p>
      * Eksempel:
      * arr = {1, 3, 5, 7}, ascending = true => returnerer true
      * arr = {7, 5, 3, 1}, ascending = false => returnerer true
@@ -374,7 +470,7 @@ public class Emne01OpgaverArrays {
      * array af heltal `arr` (ikke nødvendigvis sorteret) og returnerer et *nyt* array,
      * der kun indeholder de unikke elementer fra `arr`. Rækkefølgen af elementernes
      * *første* forekomst i det oprindelige array skal bevares i resultatarrayet.
-     *
+     * <p>
      * Eksempel:
      * arr = {1, 5, 2, 5, 3, 1, 5, 2} => returnerer {1, 5, 2, 3}
      */
@@ -393,7 +489,7 @@ public class Emne01OpgaverArrays {
      * der tager et array af heltal `arr` og returnerer et *nyt* array af `double`,
      * hvor hvert element `result[i]` er gennemsnittet af de første `i+1` elementer
      * af input-arrayet `arr` (dvs. gennemsnittet af `arr[0]...arr[i]`).
-     *
+     * <p>
      * Eksempel:
      * arr = {2, 4, 6, 8} => returnerer {2.0, 3.0, 4.0, 5.0}
      */
